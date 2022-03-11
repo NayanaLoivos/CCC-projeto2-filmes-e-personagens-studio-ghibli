@@ -9,31 +9,32 @@ fetch(urlJason)
     .then(dados => dados.json())
     .then(resposta => {
         resposta.films.forEach(film => {
-            const { title, poster } = film;
-            h1Title.append(Filme(title, poster));
+            const { poster, title } = film;
+            h1Title.append(Filme(poster, title));
         })
     })
 
 
 
 
+//USANDO FETCH
 
-function criarFilmeETituloNoHTML(film) {
-    h1Title.innerHTML += (`<h3>${film.title}</h3>`)
-    obterImagem(film.poster)
-}
+// function criarFilmeETituloNoHTML(film) {
+//     h1Title.innerHTML += (`<h3>${film.title}</h3>`)
+//     obterImagem(film.poster)
+// }
 
-function obterImagem(url) {
-    fetch(url)
-        .then(dados => dados.blob())
-        //.then(resposta => console.log(resposta))
-        .then(resposta => {
-            const imgURL = URL.createObjectURL(resposta)
-            const img = `<img src="${imgURL}"/>`
+// function obterImagem(url) {
+//     fetch(url)
+//         .then(dados => dados.blob())
+//         //.then(resposta => console.log(resposta))
+//         .then(resposta => {
+//             const imgURL = URL.createObjectURL(resposta)
+//             const img = `<img src="${imgURL}"/>`
 
-            jsonPoster.innerHTML += (img)
-        });
-}
+//             jsonPoster.innerHTML += (img)
+//         });
+// }
 
 
 
